@@ -1,27 +1,28 @@
 import java.util.Locale;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
 
-        String printSemln = "Teste de não pular linha";
-        String nome = "Maria";
-        int idade = 31;
-        double renda = 4000.0;
+        String x;
+        x = sc.next();
+        System.out.println("1. Você digitou: " + x);
         
-        int y = 32;
-        double x = 10.35784;
         
-        System.out.println(y);
-        System.out.print(printSemln);
-        System.out.println(y);
-        System.out.printf("%.2f%n", x);
-        System.out.printf("%.4f%n", x);
-        Locale.setDefault(Locale.US);
-        System.out.println("Bom dia!");
-        System.out.printf("RESULTADO = " + x + " METROS%n");
-        System.out.printf("RESULTADO = %.2f METROS%n", x);
-        System.out.printf("%s tem %d anos e ganha R$ %.2f reais%n", nome, idade, renda);
+        int y;
+        y = sc.nextInt();
+        System.out.println("2. Você digitou: " + y);
 
 
+        double l;
+        l = sc.nextDouble();
+        System.out.printf("3. Você digitou: %.2f%n", l);
+
+        char z;
+        z = sc.next().charAt(0);
+        System.out.println("4. Você digitou: " + z);
+
+        sc.close();
     }
 }
