@@ -1,25 +1,50 @@
+import java.util.Locale;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        double x = 3.0;
-        double y = 4.0;
-        double z = -5.0;
-        double A, B, C;
-        A = Math.sqrt(x);
-        B = Math.sqrt(y);
-        C = Math.sqrt(25.0);
-        System.out.println("Raiz quadrada de " + x + " = " + A);
-        System.out.println("Raiz quadrada de " + y + " = " + B);
-        System.out.println("Raiz quadrada de 25 = " + C);
-        A = Math.pow(x, y);
-        B = Math.pow(x, 2.0);
-        C = Math.pow(5.0, 2.0);
-        System.out.println(x + " elevado a " + y + " = " + A);
-        System.out.println(x + " elevado ao quadrado = " + B);
-        System.out.println("5 elevado ao quadrado = " + C);
-        A = Math.abs(y);
-        B = Math.abs(z);
-        System.out.println("Valor absoluto de " + y + " = " + A);
-        System.out.println("Valor absoluto de " + z + " = " + B);
+    
+        // Formatar: toLowerCase(), toUpperCase(), trim()
+        // Recortar: substring(inicio), substring(inicio, fim)
+        // Substituir: Replace(char, char), Replace(string, string)
+        // Buscar: IndexOf, LastIndexOf
+        // str.Split("")
 
+        String original = "abcde FGHIJ ABC abc DEFG";
+        String s = "potato apple lemon";
+
+        String s01 = original.toLowerCase();
+        String s02 = original.toUpperCase();
+        String s03 = original.trim();
+        String s04 = original.substring(2);
+        String s05 = original.substring(2, 9);
+        String s06 = original.replace('a', 'x');
+        String s07 = original.replace("abc", "xy");
+        
+        int i = original.indexOf("bc");
+        int j = original.lastIndexOf("bc");
+        String[] vect = s.split(" ");
+
+        System.out.println("Original: -"+ original + "-");
+        System.out.println("toLowerCase: -" + s01 + "-");
+        System.out.println("toUpperCase: -" + s02 + "-");
+        System.out.println("trim: -" + s03 + "-");
+
+        System.out.println();
+
+        System.out.println("substring(2): -" + s04 + "-");
+        System.out.println("substring(2, 9): -" + s05 + "-");
+        System.out.println("replace('a', 'x'): -" +  s06 + "-");
+        System.out.println("replace('abc', 'xy'): -" +  s07 + "-");
+
+        System.out.println("Index of 'bc': " +  i);
+        System.out.println("Last index of 'bc': "+  j);
+
+        System.out.println();
+
+        System.out.println(vect[0]);
+        System.out.println(vect[1]);
+        System.out.println(vect[2]);
+        
     }
 }
