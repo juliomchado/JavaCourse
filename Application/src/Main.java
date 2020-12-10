@@ -5,23 +5,20 @@ public class Main {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
 
-        String x;
-        x = sc.next();
-        System.out.println("1. Você digitou: " + x);
-        
-        
-        int y;
-        y = sc.nextInt();
-        System.out.println("2. Você digitou: " + y);
+        int x;
+        String s1, s2, s3;
 
+        x = sc.nextInt();
+        sc.nextLine();
+        s1 = sc.nextLine();
+        s2 = sc.nextLine();
+        s3 = sc.nextLine();
 
-        double l;
-        l = sc.nextDouble();
-        System.out.printf("3. Você digitou: %.2f%n", l);
-
-        char z;
-        z = sc.next().charAt(0);
-        System.out.println("4. Você digitou: " + z);
+        System.out.println("DADOS DIGITADOS: ");
+        System.out.println(x);
+        System.out.println(s1);
+        System.out.println(s2);
+        System.out.println(s3);
 
         sc.close();
     }
