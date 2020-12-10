@@ -3,6 +3,7 @@ import java.util.Locale;
 public class Main {
     public static void main(String[] args){
 
+        String printSemln = "Teste de não pular linha";
         String nome = "Maria";
         int idade = 31;
         double renda = 4000.0;
@@ -10,6 +11,8 @@ public class Main {
         int y = 32;
         double x = 10.35784;
         
+        System.out.println(y);
+        System.out.print(printSemln);
         System.out.println(y);
         System.out.printf("%.2f%n", x);
         System.out.printf("%.4f%n", x);
