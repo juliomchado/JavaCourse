@@ -8,35 +8,23 @@ public class Program {
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
-        
-        System.out.println("Enter product data: ");
-        System.out.print("Name: ");
-        String name = sc.nextLine();
-        System.out.print("Price: ");
-        double price = sc.nextDouble();
-        // System.out.print("Quantity in stock: ");
-        // int quantity = sc.nextInt();
 
-        Product product = new Product(name, price);
+        int n = sc.nextInt();
+        double[] vect = new double[n];
 
-        System.out.println();
-        System.out.println("Product data: " + product);
-        
-        System.out.println();
-        System.out.print("Enter the number of products to be added in stock: ");
-        int quantity = sc.nextInt();
-        product.addProducts(quantity);
-        
-        System.out.println();
-        System.out.println("Updated data: " + product);
+        for (int i = 0; i < n; i++) {
+            vect[i] = sc.nextDouble();
+        }
 
-        System.out.println();
-        System.out.print("Enter the number of products to be removed from stock: ");
-        quantity = sc.nextInt();
-        product.removeProducts(quantity); 
+        double sum = 0.0;
 
-        System.out.println();
-        System.out.println("Updated data: " + product);
+        for (int i = 0; i < n; i++) {
+            sum += vect[i];
+        }
+
+        double avg = sum / n;
+
+        System.out.printf("AVARAGE HEIGHT: %.2f%n", avg);
 
         sc.close();
     }
