@@ -6,24 +6,20 @@ import java.time.Instant;
 import java.util.Calendar;
 import java.util.Date;
 
+import entities.Order;
+import entities_enums.OrderStatus;
+
 public class Program {
     public static void main(String[] args) throws ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        
-        Date d = Date.from(Instant.parse("2018-06-25T15:42:07Z"));
+        Order order = new Order(1080, new Date(), OrderStatus.PENDING_PAYMENT);
 
-        System.out.println(sdf.format(d));
+        System.out.println(order);
 
-        Calendar cal = Calendar.getInstance();
+        OrderStatus os1 = OrderStatus.DELIVERED;
 
-        cal.setTime(d);
-        int minutes = cal.get(Calendar.MINUTE);
-        int month = 1 + cal.get(Calendar.MONTH);
+        OrderStatus os2 = OrderStatus.valueOf("DELIVERED");
 
-        System.out.println("Minutes: " + minutes);
-        System.out.println("Month: " + month);
-
-
-
+        System.out.println(os1);
+        System.out.println(os2);
     }
 }
