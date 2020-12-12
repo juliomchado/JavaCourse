@@ -3,36 +3,53 @@ package application;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
 
-import entities.Account;
-import entities.BusinessAccount;
-import entities.SavingsAccount;
+import entities.Shape;
+import entities_enums.Color;
+import entities.Rectangle;
+import entities.Circle;
 
 public class Program {
     public static void main(String[] args) throws ParseException {
 
-        List<Account> list = new ArrayList<>();
+        Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in);
 
-        list.add(new SavingsAccount(1001, "Alex", 500.00, 0.01));
-        list.add(new BusinessAccount(1002, "Maria", 1000.00, 400.0));
-        list.add(new SavingsAccount(1004, "Bob", 300.00, 0.01));        
-        list.add(new BusinessAccount(1005, "Anna", 500.00, 500.0));
-        
-        double sum = 0.0;
+        List<Shape> list = new ArrayList<>();
 
-        for(Account acc : list){
-            sum += acc.getBalance();
+        System.out.print("Enter the number of shapes: ");
+        int n = sc.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            System.out.println("Shape #" + i + " data:");
+            System.out.print("Rectangle or Circle (r/c)? ");
+            char ch = sc.next().charAt(0);
+            System.out.print("Color (BLACK/BLUE/RED): ");
+            Color color = Color.valueOf(sc.next());
+
+            if (ch == 'r') {
+                System.out.print("Widht: ");
+                double width = sc.nextDouble();
+                System.out.print("Height: ");
+                double height = sc.nextDouble();
+                list.add(new Rectangle(color, width, height));
+            } else {
+                System.out.print("Radius: ");
+                double radius = sc.nextDouble();
+                list.add(new Circle(color, radius));
+            }
         }
 
-        System.out.printf("Total balance: %.2f%n", sum);
+        System.out.println();
+        System.out.println("SHAPE AREAS: ");
 
-        for(Account acc : list){
-            acc.deposit(10.0);
+        for (Shape shape : list) {
+            System.out.println(String.format("%.2f", shape.area()));
         }
-        
-        for(Account acc : list){
-            System.out.printf("Updated balance for account %d: %.2f%n", acc.getNumber(), acc.getBalance());
-        }
-    
+
+        sc.close();
+
     }
 }
