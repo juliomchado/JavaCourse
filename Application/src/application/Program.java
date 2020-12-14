@@ -1,23 +1,48 @@
 package application;
 
 import java.text.ParseException;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
-import entities.Client;
+import entities.Product;
 
 public class Program {
     public static void main(String[] args) throws ParseException {
 
-        Locale.setDefault(Locale.US);
+        Map<Product, Double> stock = new HashMap<>();
 
-        Client c1 = new Client("Maria", "maria@gmail.com");
-        Client c2 = new Client("Maria", "maria@gmail.com");
+        Product p1 = new Product("Tv", 900.0);
+        Product p2 = new Product("Notebook", 1200.0);
+        Product p3 = new Product("Tablet", 400.0);
+        
+        stock.put(p1, 10000.0);
+        stock.put(p2, 20000.0);
+        stock.put(p3, 15000.0);
+        
+        Product ps = new Product("Tv", 900.0);
+        
+        System.out.println("Contains 'ps' key: " + stock.containsKey(ps));
 
-        System.out.println(c1.hashCode());
-        System.out.println(c2.hashCode());
-        System.out.println(c1.equals(c2));
-        System.out.println(c1 == c2);
+        // Map<String, String> cookies = new TreeMap<>();
+
+        // cookies.put("username", "Maria");
+        // cookies.put("email", "maria@gmail.com");
+        // cookies.put("phone", "99711122");
+
+        // cookies.remove("email");
+        // cookies.put("phone", "99711133");
+
+        // System.out.println("Contains 'phone' key: " + cookies.containsKey("phone"));
+        // System.out.println("Phone number: " + cookies.get("phone"));
+        // System.out.println("Email: " + cookies.get("email"));
+        // System.out.println("Size: " + cookies.size());
+
+        // System.out.println("ALL COOKIES: ");
+
+        // for (String key : cookies.keySet()) {
+        // System.out.println(key + ": " + cookies.get(key));
+        // }
 
     }
 }
