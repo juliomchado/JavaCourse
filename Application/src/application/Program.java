@@ -4,28 +4,20 @@ import java.text.ParseException;
 import java.util.Locale;
 import java.util.Scanner;
 
-import services.PrintService;
+import entities.Client;
 
 public class Program {
     public static void main(String[] args) throws ParseException {
 
         Locale.setDefault(Locale.US);
 
-        Scanner sc = new Scanner(System.in);
-        PrintService<Integer> ps = new PrintService<>();
+        Client c1 = new Client("Maria", "maria@gmail.com");
+        Client c2 = new Client("Maria", "maria@gmail.com");
 
-        System.out.print("How many values? ");
+        System.out.println(c1.hashCode());
+        System.out.println(c2.hashCode());
+        System.out.println(c1.equals(c2));
+        System.out.println(c1 == c2);
 
-        int n = sc.nextInt();
-
-        for (int i = 0; i < n; i++) {
-            int value = sc.nextInt();
-            ps.addValue(value);
-        }
-
-        ps.print();
-        System.out.println("First: " + ps.first());
-
-        sc.close();
     }
 }
