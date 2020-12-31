@@ -7,13 +7,9 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.function.Consumer;
-import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 import entities.Product;
-import util.UpperCaseName;
 
 public class Program {
     public static void main(String[] args) {
@@ -24,17 +20,13 @@ public class Program {
         list.add(new Product("Tablet", 350.50));
         list.add(new Product("HD Case", 80.90));
 
-        // List<String> uppercaseNames = list.stream().map(new UpperCaseName()).collect(Collectors.toList());
-        // List<String> uppercaseNames = list.stream().map(Product::staticUppercaseName).collect(Collectors.toList());
-        // List<String> uppercaseNames = list.stream().map(Product::nonStaticUppercaseName).collect(Collectors.toList());
-        // Function<Product,String> newString = p -> p.getName().toUpperCase();
-       
-        List<String> uppercaseNames = list.stream().map(p -> p.getName().toUpperCase()).collect(Collectors.toList());
-        
+        // list.forEach(new PriceUpdate());
+        // list.forEach(Product::staticPriceUpdate);
+        // list.forEach(Product::nonStaticPriceUpdate);
+        Consumer<Product> cons = p -> p.setPrice(p.getPrice() * 1.1);
+        list.forEach(cons);
 
-
-
-        uppercaseNames.forEach(System.out::println);
+        list.forEach(System.out::println);
 
     }
 }
